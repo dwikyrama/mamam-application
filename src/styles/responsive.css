@@ -1,5 +1,5 @@
 /* Medium Screen */
-@media screen and (min-width: 650px) {
+@media screen and (min-width: 640px) {
     .app-bar {
         grid-template-columns: 1fr auto;
         padding: 8px 32px;
@@ -13,6 +13,8 @@
         position: static;
         width: 100%;
         padding: 0;
+        background-color: transparent;
+        transform: none;
     }
 
     .app-bar .app-bar__navigation ul {
@@ -39,6 +41,7 @@
         line-height: 44px;
         text-decoration: none;
         color: #616161;
+        font-size: 1.2em;
     }
 
     .app-bar .app-bar__navigation ul li a:hover {
@@ -62,12 +65,6 @@
     .movie .movie__overview {
         grid-column-start: 1;
         grid-column-end: 3;
-    }
-  }
-   
-  @media screen and (min-width: 800px) {
-    .app-bar .app-bar__brand h1 {
-        font-size: 2em;
     }
   }
    
