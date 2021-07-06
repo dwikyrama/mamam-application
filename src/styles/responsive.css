@@ -1,7 +1,12 @@
 /* Medium Screen */
 @media screen and (min-width: 640px) {
+    .wrapper {
+        grid-template-columns: 1fr 1fr;
+        padding: 1.6em 2.6em;
+    }
+
     .app-bar {
-        grid-template-columns: 1fr auto;
+        grid-template-columns: 3fr 2fr;
         padding: 8px 32px;
     }
    
@@ -21,6 +26,7 @@
         display: flex;
         align-items: center;
         height: 100%;
+        justify-content: space-around;
     }
    
     .app-bar .app-bar__navigation ul li {
@@ -29,7 +35,6 @@
         text-align: right;
         line-height: 1.6em;
         text-transform: uppercase;
-        padding-left: 2.6em;
     }
    
     .app-bar .app-bar__navigation ul li a {
@@ -48,62 +53,24 @@
         text-decoration: underline;
         color: #AC0D0D;
     }
-   
-    .movies {
-        grid-template-columns: 1fr 1fr;
-    }
-   
-    .movie {
-        grid-template-columns: auto 1fr;
-    }
-   
-    .movie .movie__title {
-        grid-column-start: 1;
-        grid-column-end: 3;
-    }
-   
-    .movie .movie__overview {
-        grid-column-start: 1;
-        grid-column-end: 3;
-    }
   }
    
   @media screen and (min-width: 850px) {
-    .movies {
+    .wrapper {
         grid-template-columns: repeat(3, 1fr);
+    }
+    .app-bar {
+        grid-template-columns: 2fr 1fr;
+        padding: 8px 32px;
     }
   }
    
   @media screen and (min-width: 1200px) {
-    .movies {
+    .wrapper {
         grid-template-columns: repeat(4, 1fr);
     }
-  }
-   
-  @media screen and (min-width: 1600px) {
-    .movies {
-        grid-template-columns: repeat(5, 1fr);
+    .app-bar {
+        grid-template-columns: 3fr 1fr;
+        padding: 8px 32px;
     }
   }
-
-
-@media screen and (min-width: 640px) {
-    .wrapper {
-        grid-template-columns: 1fr 1fr;
-        padding: 1.6em 2.6em;
-    }
-    #drawer {
-        position: relative;
-        transform: translate(0, 0);
-    }
-    #hamburger {
-        display: none;
-    }
-}
-
-/* Large Screen */
-@media screen and (min-width: 1024px) {
-    .wrapper {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
