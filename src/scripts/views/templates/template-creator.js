@@ -1,19 +1,18 @@
 import CONFIG from '../../globals/config'
 
-const createRestaurantDetailTemplate = (restaurant) => `
-  <h2 class="restaurant__title">${restaurant.name}</h2>
-  <img class="restaurant__poster" src="${CONFIG.BASE_IMAGE_URL + 'medium/' + restaurant.pictureId}" alt="${restaurant.name}" />
-  <div class="restaurant__info">
-  <h3>Information</h3>
-    <h4>City</h4>
-    <p>${restaurant.city} minutes</p>
-    <h4>Rating</h4>
-    <p>${restaurant.rating}</p>
-  </div>
-  <div class="restaurant__description">
-    <h3>Description</h3>
-    <p>${restaurant.description}</p>
-  </div>
+const createRestaurantDetailTemplate = (detail) => `
+    <h2 class="restaurant__title">${detail.restaurant.name}</h2>
+    <div class="restaurant__info">
+        <h4>
+            <span class="post-item__city">${detail.restaurant.city}</span>    
+            <span class="post-item__rating">&#9733; ${detail.restaurant.rating}</span>
+        </h4>
+    </div>
+    <img class="restaurant__poster" alt="${detail.restaurant.name}" 
+        src="${CONFIG.BASE_IMAGE_URL + 'medium/' + detail.restaurant.pictureId}" />
+    <div class="restaurant__description">
+        <p>${detail.restaurant.description}</p>
+    </div>
 `
 
 const createRestaurantItemTemplate = (restaurant) => `
@@ -33,6 +32,6 @@ const createRestaurantItemTemplate = (restaurant) => `
             <p class="post-item__description">${restaurant.description}</p>
         </div>
     </article>
-  `
+`
 
 export { createRestaurantItemTemplate, createRestaurantDetailTemplate }

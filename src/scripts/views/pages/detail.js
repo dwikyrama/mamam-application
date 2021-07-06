@@ -1,12 +1,22 @@
+import UrlParser from '../../routes/url-parser'
+import restaurantDbSource from '../../data/restaurantdb-source'
+import { createRestaurantDetailTemplate } from '../templates/template-creator'
+
 const Detail = {
   async render () {
     return `
-        <h2>Detail Page</h2>
-      `
+      <div id="restaurantDetail" class="restaurant__wrapper"></div>
+    `
   },
 
   async afterRender () {
-    // Fungsi ini akan dipanggil setelah render()
+    const url = UrlParser.parseActiveUrlWithoutCombiner()
+    console.log(url)
+    const restaurantId = await restaurantDbSource.detailRestaurant(url.id)
+    console.log(restaurantId)
+
+    const restaurantDetailContainer = document.querySelector('#restaurantDetail')
+    restaurantDetailContainer.innerHTML = createRestaurantDetailTemplate(restaurantId)
   }
 }
 

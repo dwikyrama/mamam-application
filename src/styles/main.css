@@ -250,6 +250,35 @@ figure img {
 }
 
 /*
+ * Restaurant Detail
+ */
+
+.restaurant__wrapper {
+    display: grid;
+    gap: 0 10px;
+    max-width: 850px;
+    margin: auto;
+    padding: 1.6em;
+}
+
+.restaurant__info {
+    display: grid;
+    gap: 0 10px;
+    max-width: 850px;
+    margin: auto;
+    padding: 1.6em 0;
+    width: 100%;
+}
+
+.restaurant__description {
+    display: grid;
+    gap: 0 10px;
+    max-width: 640px;
+    margin: auto;
+    padding: 1.6em 0;
+}
+
+/*
  * Footer
  */
 
