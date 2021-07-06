@@ -1,29 +1,20 @@
-import 'regenerator-runtime'; /* for async await transpile */
-import '../styles/main.css';
-import data from '../DATA.json';
+import 'regenerator-runtime' /* for async await transpile */
+import '../styles/main.css'
+import '../styles/responsive.css'
+import App from './views/app.js'
+import data from '../DATA.json'
 
-console.log('Hello Coders! :)');
-
-// Hamburger Navigation
-const hamburgerButtonElement = document.querySelector("#hamburger");
-const drawerElement = document.querySelector("#drawer");
-const mainElement = document.querySelector("main");
-
-hamburgerButtonElement.addEventListener("click", event => {
-    drawerElement.classList.toggle("open");
-    event.stopPropagation();
-});
-
-mainElement.addEventListener("click", event => {
-    drawerElement.classList.remove("open");
-    event.stopPropagation();
+const app = new App({
+  button: document.querySelector('#hamburgerButton'),
+  drawer: document.querySelector('#navigationDrawer'),
+  content: document.querySelector('#mainContent')
 })
 
 // data.json
 const elementRestaurant = document.querySelector('#myData')
 
 data.restaurants.forEach(resto => {
-    elementRestaurant.innerHTML += `
+  elementRestaurant.innerHTML += `
         <article class="post-item">
             <figure>
                 <img src="${resto.pictureId}" alt="Suasana ${resto.name}" class="post-item__thumbnail">
@@ -38,4 +29,4 @@ data.restaurants.forEach(resto => {
             </div>
         </article>
     `
-});
+})
