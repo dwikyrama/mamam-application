@@ -11,12 +11,48 @@ const Detail = {
 
   async afterRender () {
     const url = UrlParser.parseActiveUrlWithoutCombiner()
-    console.log(url)
     const restaurantId = await restaurantDbSource.detailRestaurant(url.id)
-    console.log(restaurantId)
-
     const restaurantDetailContainer = document.querySelector('#restaurantDetail')
     restaurantDetailContainer.innerHTML = createRestaurantDetailTemplate(restaurantId)
+
+    const restaurantCategories = restaurantId.restaurant.categories
+    const restaurantCategoryContainer = document.querySelector('#restaurantCategory')
+    restaurantCategories.forEach((category) => {
+      restaurantCategoryContainer.innerHTML += `
+          <li>${category.name}</li>
+        `
+    })
+
+    const restaurantMenuFoods = restaurantId.restaurant.menus.foods
+    const restaurantMenuFoodsContainer = document.querySelector('#restaurantMenuFoods')
+    restaurantMenuFoods.forEach((menu) => {
+      restaurantMenuFoodsContainer.innerHTML += `
+          <li>${menu.name}</li>
+        `
+    })
+
+    const restaurantMenuDrinks = restaurantId.restaurant.menus.drinks
+    const restaurantMenuDrinksContainer = document.querySelector('#restaurantMenuDrinks')
+    restaurantMenuDrinks.forEach((menu) => {
+      restaurantMenuDrinksContainer.innerHTML += `
+          <li>${menu.name}</li>
+        `
+    })
+
+    const restaurantReview = restaurantId.restaurant.customerReviews
+    const restaurantReviewContainer = document.querySelector('#restaurantReview')
+    restaurantReview.forEach((review) => {
+      restaurantReviewContainer.innerHTML += `
+          <div class="restaurant__review__container">
+            <div class="restaurant__review__image"></div>
+            <div class="restaurant__review__meta">
+              <h5 class="restaurant__review__name">${review.name}</h5>
+              <p class="restaurant__review__date">${review.date}</p>
+            </div>
+            <p class="restaurant__review__desc">${review.review}</p>
+          </div>
+        `
+    })
   }
 }
 
