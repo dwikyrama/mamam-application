@@ -14,7 +14,13 @@ const Like = {
     const restaurantContainer = document.querySelector('#restaurant')
     restaurants.forEach((restaurant) => {
       restaurantContainer.innerHTML += createRestaurantItemTemplate(restaurant)
+      console.log(restaurant)
     })
+    if (restaurants.length === 0) {
+      restaurantContainer.innerHTML += `
+            <p>Kamu belum punya restoran favorit 😞 </p>
+        `
+    }
   }
 }
 
