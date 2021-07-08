@@ -1,25 +1,25 @@
 import CONFIG from '../../globals/config'
 
-const createRestaurantDetailTemplate = (detail) => `
+const createRestaurantDetailTemplate = (restaurant) => `
     <figure class="restaurant__poster">
-        <img class="restaurant__poster__image" alt="${detail.restaurant.name}" 
-            src="${CONFIG.BASE_IMAGE_URL + 'medium/' + detail.restaurant.pictureId}" />    
+        <img class="restaurant__poster__image" alt="${restaurant.name}" 
+            src="${CONFIG.BASE_IMAGE_URL + 'medium/' + restaurant.pictureId}" />    
     </figure>
     
     <div class="restaurant__info">
         <ul id="restaurantCategory" class="restaurant__category"></ul>
-        <h2 class="restaurant__title">${detail.restaurant.name}</h2>
+        <h2 class="restaurant__title">${restaurant.name}</h2>
         <h3>
-            <span class="restaurant__city">${detail.restaurant.city}</span>    
-            <span class="restaurant__rating">&#9733; ${detail.restaurant.rating}</span>
+            <span class="restaurant__city">${restaurant.city}</span>    
+            <span class="restaurant__rating">&#9733; ${restaurant.rating}</span>
         </h3>
-        <p class="restaurant__address">${detail.restaurant.address}</p>
+        <p class="restaurant__address">${restaurant.address}</p>
     </div>
     
     <div class="restaurant__details">
         <div class="restaurant__description">
             <h4 class="restaurant__subtitle">Deskripsi</h4>
-            <p>${detail.restaurant.description}</p>
+            <p>${restaurant.description}</p>
         </div>
         <div class="restaurant__menu">
             <h4 class="restaurant__subtitle">Menu</h4>
@@ -32,7 +32,7 @@ const createRestaurantDetailTemplate = (detail) => `
             <h4 class="restaurant__subtitle">Ulasan</h4>
         </div>
     </div>
-    `
+`
 
 const createRestaurantItemTemplate = (restaurant) => `
     <article class="post-item">
@@ -52,5 +52,21 @@ const createRestaurantItemTemplate = (restaurant) => `
         </div>
     </article>
 `
+const createLikeButtonTemplate = () => `
+  <button aria-label="like this restaurant" id="likeButton" class="like">
+     <i class="fa fa-heart-o" aria-hidden="true"></i>
+  </button>
+`
 
-export { createRestaurantItemTemplate, createRestaurantDetailTemplate }
+const createLikedButtonTemplate = () => `
+  <button aria-label="unlike this restaurant" id="likeButton" class="like">
+    <i class="fa fa-heart" aria-hidden="true"></i>
+  </button>
+`
+
+export {
+  createRestaurantItemTemplate,
+  createRestaurantDetailTemplate,
+  createLikeButtonTemplate,
+  createLikedButtonTemplate
+}

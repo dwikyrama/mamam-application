@@ -1,21 +1,24 @@
 import UrlParser from '../../routes/url-parser'
 import restaurantDbSource from '../../data/restaurantdb-source'
 import { createRestaurantDetailTemplate } from '../templates/template-creator'
+import LikeButtonInitiator from '../../utils/like-button-initiator'
 
 const Detail = {
   async render () {
     return `
       <div id="restaurantDetail" class="restaurant__wrapper"></div>
+      <div id="likeButtonContainer"></div>
     `
   },
 
   async afterRender () {
     const url = UrlParser.parseActiveUrlWithoutCombiner()
     const restaurantId = await restaurantDbSource.detailRestaurant(url.id)
+    const restaurant = restaurantId.restaurant
     const restaurantDetailContainer = document.querySelector('#restaurantDetail')
-    restaurantDetailContainer.innerHTML = createRestaurantDetailTemplate(restaurantId)
+    restaurantDetailContainer.innerHTML = createRestaurantDetailTemplate(restaurant)
 
-    const restaurantCategories = restaurantId.restaurant.categories
+    const restaurantCategories = restaurant.categories
     const restaurantCategoryContainer = document.querySelector('#restaurantCategory')
     restaurantCategories.forEach((category) => {
       restaurantCategoryContainer.innerHTML += `
@@ -23,7 +26,7 @@ const Detail = {
         `
     })
 
-    const restaurantMenuFoods = restaurantId.restaurant.menus.foods
+    const restaurantMenuFoods = restaurant.menus.foods
     const restaurantMenuFoodsContainer = document.querySelector('#restaurantMenuFoods')
     restaurantMenuFoods.forEach((menu) => {
       restaurantMenuFoodsContainer.innerHTML += `
@@ -31,7 +34,7 @@ const Detail = {
         `
     })
 
-    const restaurantMenuDrinks = restaurantId.restaurant.menus.drinks
+    const restaurantMenuDrinks = restaurant.menus.drinks
     const restaurantMenuDrinksContainer = document.querySelector('#restaurantMenuDrinks')
     restaurantMenuDrinks.forEach((menu) => {
       restaurantMenuDrinksContainer.innerHTML += `
@@ -39,7 +42,7 @@ const Detail = {
         `
     })
 
-    const restaurantReview = restaurantId.restaurant.customerReviews
+    const restaurantReview = restaurant.customerReviews
     const restaurantReviewContainer = document.querySelector('#restaurantReview')
     restaurantReview.forEach((review) => {
       restaurantReviewContainer.innerHTML += `
@@ -52,6 +55,18 @@ const Detail = {
             <p class="restaurant__review__desc">${review.review}</p>
           </div>
         `
+    })
+
+    LikeButtonInitiator.init({
+      likeButtonContainer: document.querySelector('#likeButtonContainer'),
+      restaurant: {
+        id: restaurant.id,
+        name: restaurant.name,
+        description: restaurant.description,
+        city: restaurant.city,
+        rating: restaurant.rating,
+        pictureId: restaurant.pictureId
+      }
     })
   }
 }
