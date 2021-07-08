@@ -30,7 +30,7 @@ img {
     gap: 0 10px;
     max-width: 1200px;
     margin: auto;
-    padding: 1.6em;
+    padding: 32px;
 }
 
 /*
@@ -400,6 +400,14 @@ main {
     color: #AC0D0D;
 }
 
+.restaurant__fav__title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2em;
+    padding: 32px;
+    padding-bottom: 0;
+    max-width: 1200px;
+    margin: auto;
+}
 
 /*
  * Footer
@@ -412,24 +420,6 @@ footer {
     text-align: center;
     color: white;
 }
-
-/* footer ul {
-    margin: 0 auto;
-    display: inline-block;
-}
-
-footer li {
-    display: inline-block;
-    margin: 0 1em;
-    font-size: 14px;
-}
-
-footer a {
-    display: inline-block;
-    padding: 1.3em;
-    text-decoration: none;
-    color: #fff
-} */
 
 #copyright {
     font-family: 'Fredoka One', cursive;
@@ -463,7 +453,7 @@ footer a {
     position: fixed;
     bottom: 16px;
     right: 16px;
-    background-color: #db0000;
+    background-color: #F0C929;
     color: white;
     border: 0;
     border-radius: 50%;
@@ -473,4 +463,8 @@ footer a {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.like:focus {
+    background-color: #AC0D0D;
 }
