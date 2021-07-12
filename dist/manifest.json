@@ -4,8 +4,8 @@
     "description": "acuan makan makan",
     "start_url": "/index.html",
     "display": "standalone",
-    "background_color": "#AC0D0D",
-    "theme_color": "#fff",
+    "background_color": "#ffffff",
+    "theme_color": "#AC0D0D",
     "icons": [
       {
         "src": "/icons/icon-72x72.png",
