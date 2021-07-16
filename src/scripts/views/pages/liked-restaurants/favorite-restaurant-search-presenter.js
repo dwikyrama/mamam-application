@@ -30,15 +30,21 @@ class FavoriteRestaurantSearchPresenter {
   }
 
   _showFoundRestaurants (restaurants) {
-    const html = restaurants.reduce(
-      (carry, restaurant) => carry.concat(`
-        <li class="restaurant">
-          <span class="restaurant__name">${restaurant.name || '-'}</span>
-        </li>
-        `
-      ),
-      ''
-    )
+    let html
+
+    if (restaurants.length > 0) {
+      html = restaurants.reduce(
+        (carry, restaurant) => carry.concat(`
+          <li class="restaurant">
+            <span class="restaurant__name">${restaurant.name || '-'}</span>
+          </li>
+          `
+        ),
+        ''
+      )
+    } else {
+      html = '<div class="restaurants__not__found">Film tidak ditemukan</div>'
+    }
 
     document.querySelector('.restaurants').innerHTML = html
 
