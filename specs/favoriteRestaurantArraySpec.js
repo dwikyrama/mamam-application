@@ -35,6 +35,19 @@ const FavoriteRestaurantArray = {
     // cara boros menghapus film dengan meng-copy film yang ada
     // kecuali film dengan id == id
     favoriteRestaurants = favoriteRestaurants.filter((restaurant) => restaurant.id !== id)
+  },
+
+  searchRestaurants (query) {
+    return this.getAllRestaurants()
+      .filter((restaurant) => {
+        const loweredCaseRestaurantName = (restaurant.name || '-').toLowerCase()
+        const jammedRestaurantName = loweredCaseRestaurantName.replace(/\s/g, '')
+
+        const loweredCaseQuery = query.toLowerCase()
+        const jammedQuery = loweredCaseQuery.replace(/\s/g, '')
+
+        return jammedRestaurantName.indexOf(jammedQuery) !== -1
+      })
   }
 }
 
