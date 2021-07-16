@@ -46,37 +46,6 @@ describe('Searching restaurants', () => {
         .toHaveBeenCalledWith('film a')
     })
 
-    it('should show the found restaurants', () => {
-      presenter._showFoundRestaurants([{ id: 1 }])
-      expect(document.querySelectorAll('.restaurant').length).toEqual(1)
-
-      presenter._showFoundRestaurants([
-        { id: 1, name: 'Satu' }, { id: 2, name: 'Dua' }
-      ])
-      expect(document.querySelectorAll('.restaurant').length).toEqual(2)
-    })
-
-    it('should show the name of the found restaurants', () => {
-      presenter._showFoundRestaurants([{ id: 1, name: 'Satu' }])
-      expect(document.querySelectorAll('.restaurant__name')
-        .item(0).textContent).toEqual('Satu')
-
-      presenter._showFoundRestaurants(
-        [{ id: 1, name: 'Satu' }, { id: 2, name: 'Dua' }]
-      )
-
-      const restaurantNames = document.querySelectorAll('.restaurant__name')
-      expect(restaurantNames.item(0).textContent).toEqual('Satu')
-      expect(restaurantNames.item(1).textContent).toEqual('Dua')
-    })
-
-    it('should show - for found restaurant without name', () => {
-      presenter._showFoundRestaurants([{ id: 1 }])
-
-      expect(document.querySelectorAll('.restaurant__name').item(0).textContent)
-        .toEqual('-')
-    })
-
     it('should show the restaurants found by Favorite Restaurants', (done) => {
       document.getElementById('restaurant-search-container')
         .addEventListener('restaurants:searched:updated', () => {
@@ -108,6 +77,21 @@ describe('Searching restaurants', () => {
         { id: 111, name: 'film abc' },
         { id: 222, name: 'ada juga film abcde' },
         { id: 333, name: 'ini juga boleh film a' }
+      ])
+
+      searchRestaurants('film a')
+    })
+
+    it('should show - when the restaurant returned does not contain a name', (done) => {
+      document.getElementById('restaurant-search-container').addEventListener('restaurants:searched:updated', () => {
+        const restaurantNames = document.querySelectorAll('.restaurant__name')
+        expect(restaurantNames.item(0).textContent).toEqual('-')
+
+        done()
+      })
+
+      favoriteRestaurants.searchRestaurants.withArgs('film a').and.returnValues([
+        { id: 444 }
       ])
 
       searchRestaurants('film a')
