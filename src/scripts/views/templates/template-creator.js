@@ -37,12 +37,12 @@ const createRestaurantDetailTemplate = (restaurant) => `
 const createRestaurantItemTemplate = (restaurant) => `
     <article class="post-item">
         <figure class="post-item__thumbnail">
-            <img class="post-item__thumbnail__image" alt="${restaurant.name}"
+            <img class="post-item__thumbnail__image" alt="${restaurant.name || '-'}"
                 src="${restaurant.pictureId ? CONFIG.BASE_IMAGE_URL + 'small/' + restaurant.pictureId : 'https://picsum.photos/id/666/800/450?grayscale'}">
         </figure>
         <div class="post-item__content">
             <h3 class="post-item__title">
-                <a href="${`/#/detail/${restaurant.id}`}">${restaurant.name}</a>
+                <a class="post-item__name" href="${`/#/detail/${restaurant.id}`}">${restaurant.name || '-'}</a>
             </h3>
             <h4>
                 <span class="post-item__city">${restaurant.city}</span>    
