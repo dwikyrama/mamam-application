@@ -19,20 +19,20 @@ class FavoriteRestaurantSearchView {
     })
   }
 
-  showFavoriteRestaurants(restaurants = []) {
-    let html;
+  showFavoriteRestaurants (restaurants = []) {
+    let html
     if (restaurants.length) {
-      html = restaurants.reduce((carry, restaurant) => carry.concat(createRestaurantItemTemplate(restaurant)), '');
+      html = restaurants.reduce((carry, restaurant) => carry.concat(createRestaurantItemTemplate(restaurant)), '')
     } else {
       html = this._getEmptyRestaurantTemplate()
     }
 
-    document.getElementById('restaurants').innerHTML = html;
+    document.getElementById('restaurants').innerHTML = html
 
     document.getElementById('restaurants').dispatchEvent(new Event('restaurants:updated'))
   }
 
-  _getEmptyRestaurantTemplate() {
+  _getEmptyRestaurantTemplate () {
     return '<div class="restaurant-item__not__found">Restoran tidak ditemukan</div>'
   }
 }
