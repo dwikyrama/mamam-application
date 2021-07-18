@@ -125,7 +125,7 @@ img {
     background-position: center;
     background-color: #AC0D0D;
     padding: 0 1.6em;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.4)), url('../public/images/heros/hero-image_4.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.4)), url('../public/images/heros/hero-image_4-small.jpg');
 }
 
 .hero__inner {

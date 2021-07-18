@@ -84,7 +84,7 @@
     
     .restaurant__menu__list {
         grid-template-columns: repeat(4, 1fr);
-    }    
+    }
   }
    
   @media screen and (min-width: 850px) {
@@ -101,6 +101,10 @@
         grid-template-columns: 2fr 1fr;
         padding: 8px 32px;
     }
+
+    .hero {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.4)), url('../public/images/heros/hero-image_4-medium.jpg');
+    }
   }
    
   @media screen and (min-width: 1200px) {
@@ -116,5 +120,9 @@
     .app-bar {
         grid-template-columns: 3fr 1fr;
         padding: 8px 32px;
+    }
+
+    .hero {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.4)), url('../public/images/heros/hero-image_4-large.jpg');
     }
   }

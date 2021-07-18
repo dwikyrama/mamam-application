@@ -1,6 +1,8 @@
 var serviceWorkerOption = {
   "assets": [
-    "/src/public/images/heros/hero-image_4.jpg",
+    "/src/public/images/heros/hero-image_4-small.jpg",
+    "/src/public/images/heros/hero-image_4-medium.jpg",
+    "/src/public/images/heros/hero-image_4-large.jpg",
     "/bundle.js",
     "/favicon.png",
     "/manifest.json",
@@ -13,8 +15,11 @@ var serviceWorkerOption = {
     "/icons/icon-512x512.png",
     "/icons/icon-72x72.png",
     "/icons/icon-96x96.png",
-    "/images/mamam-logo.svg",
-    "/images/heros/hero-image_4.jpg",
+    "/images/hero-image_4.jpg",
+    "/logo/mamam-logo.svg",
+    "/images/heros/hero-image_4-large.jpg",
+    "/images/heros/hero-image_4-medium.jpg",
+    "/images/heros/hero-image_4-small.jpg",
     "/index.html"
   ]
 };
