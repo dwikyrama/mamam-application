@@ -7,10 +7,15 @@
 
 /* Medium Screen */
 @media screen and (min-width: 640px) {
-    .wrapper {
+    .restaurants {
         grid-template-columns: 1fr 1fr;
-        padding: 1.6em 2.6em;
+        padding: 32px 2.6em;
     }
+
+    .restaurant-item__not__found {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    } 
 
     .app-bar {
         grid-template-columns: 3fr 2fr;
@@ -79,13 +84,19 @@
     
     .restaurant__menu__list {
         grid-template-columns: repeat(4, 1fr);
-    }
+    }    
   }
    
   @media screen and (min-width: 850px) {
-    .wrapper {
+    .restaurants {
         grid-template-columns: repeat(3, 1fr);
     }
+
+    .restaurant-item__not__found {
+        grid-column-start: 1;
+        grid-column-end: 4;
+    } 
+
     .app-bar {
         grid-template-columns: 2fr 1fr;
         padding: 8px 32px;
@@ -93,9 +104,15 @@
   }
    
   @media screen and (min-width: 1200px) {
-    .wrapper {
+    .restaurants {
         grid-template-columns: repeat(4, 1fr);
     }
+
+    .restaurant-item__not__found {
+        grid-column-start: 1;
+        grid-column-end: 5;
+    } 
+
     .app-bar {
         grid-template-columns: 3fr 1fr;
         padding: 8px 32px;

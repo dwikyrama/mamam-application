@@ -16,7 +16,7 @@ const Recommendation = {
         </div>
       </div>
       
-      <div id="restaurant" class="wrapper"></div>
+      <div id="restaurant" class="restaurants"></div>
     `
   },
 

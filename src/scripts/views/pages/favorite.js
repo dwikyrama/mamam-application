@@ -1,25 +1,23 @@
+/* eslint-disable no-new */
 import FavoriteRestaurantIdb from '../../data/favoriterestaurant-idb'
-import { createRestaurantItemTemplate } from '../templates/template-creator'
+import FavoriteRestaurantSearchView from './liked-restaurants/favorite-restaurant-search-view'
+import FavoriteRestaurantShowPresenter from './liked-restaurants/favorite-restaurant-show-presenter'
+import FavoriteRestaurantSearchPresenter from './liked-restaurants/favorite-restaurant-search-presenter'
+
+const view = new FavoriteRestaurantSearchView()
 
 const Like = {
   async render () {
-    return `
-        <h2 class="restaurant__fav__title">Restoran Favoritmu</h2>
-        <div id="restaurant" class="wrapper"></div>
-    `
+    return view.getTemplate()
   },
 
   async afterRender () {
-    const restaurants = await FavoriteRestaurantIdb.getAllRestaurants()
-    const restaurantContainer = document.querySelector('#restaurant')
-    restaurants.forEach((restaurant) => {
-      restaurantContainer.innerHTML += createRestaurantItemTemplate(restaurant)
+    new FavoriteRestaurantShowPresenter({
+      view, favoriteRestaurants: FavoriteRestaurantIdb
     })
-    if (restaurants.length === 0) {
-      restaurantContainer.innerHTML += `
-            <p>Kamu belum punya restoran favorit 😞 </p>
-        `
-    }
+    new FavoriteRestaurantSearchPresenter({
+      view, favoriteRestaurants: FavoriteRestaurantIdb
+    })
   }
 }
 
