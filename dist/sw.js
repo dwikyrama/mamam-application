@@ -15,11 +15,7 @@ var serviceWorkerOption = {
     "/icons/icon-512x512.png",
     "/icons/icon-72x72.png",
     "/icons/icon-96x96.png",
-    "/images/hero-image_4.jpg",
     "/logo/mamam-logo.svg",
-    "/images/heros/hero-image_4-large.jpg",
-    "/images/heros/hero-image_4-medium.jpg",
-    "/images/heros/hero-image_4-small.jpg",
     "/index.html"
   ]
 };
