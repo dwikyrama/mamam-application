@@ -5,7 +5,7 @@ class FavoriteRestaurantSearchView {
     return `
       <h2 class="restaurant__fav__title">Restoran Favoritmu</h2>
       <div class="searchbox">
-        <input id="query" type="text">
+        <input id="query" type="text" aria-label="cari restoran favoritmu">
       </div>
       <div id="restaurants" class="restaurants">
       
