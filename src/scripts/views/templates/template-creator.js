@@ -42,7 +42,7 @@ const createRestaurantItemTemplate = (restaurant) => `
         </figure>
         <div class="post-item__content">
             <h3 class="post-item__title">
-                <a class="post-item__name" href="/#/detail/${restaurant.id}}">${restaurant.name || '-'}</a>
+                <a class="post-item__name" href="/#/detail/${restaurant.id}">${restaurant.name || '-'}</a>
             </h3>
             <h4>
                 <span class="post-item__city">${restaurant.city}</span>    

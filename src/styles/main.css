@@ -195,6 +195,7 @@ main {
 
 .post-item__thumbnail {
     height: 270px;
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .post-item__thumbnail__image {
