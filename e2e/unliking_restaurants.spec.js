@@ -23,7 +23,7 @@ Scenario('Unliking restaurants', async ({ I }) => {
   I.amOnPage('/#/favorite')
   I.seeElement('.post-item__name')
   const likedRestaurant = locate('.post-item__name').first()
-  const likedRestaurantName = await I.grabTextFrom('.post-item__name')
+  const likedRestaurantName = await I.grabTextFrom(likedRestaurant)
 
   assert.strictEqual(firstRestaurantName, likedRestaurantName)
 
