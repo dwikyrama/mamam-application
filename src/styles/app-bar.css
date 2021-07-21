@@ -1,0 +1,82 @@
+ .app-bar {
+    font-family: 'Fredoka One', cursive;
+    transition: min-height 0.3s;
+    padding: 8px 16px;
+    background-color: white;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.app-bar .app-bar__menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.app-bar .app-bar__menu button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 3em;
+    line-height: 2.4em;
+    color: #AC0D0D;
+    padding-left: 12px;
+}
+
+.app-bar .app-bar__brand {
+    display: flex;
+    align-items: center;
+}
+
+.app-bar .app-bar__brand img {
+    width: 80px;
+}
+
+.app-bar .app-bar__brand h1 {
+    font-size: 3em;
+    user-select: none;
+    line-height: 44px;
+}
+
+.app-bar .app-bar__brand h1 a {
+    text-decoration: none;
+    color: #AC0D0D;
+}
+
+.app-bar .app-bar__navigation {
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transform: translate(250px, 0);
+    transition: transform 0.3s ease-in-out;
+    background-color: #AC0D0D;
+    padding: 4.2em 0;
+}
+
+.app-bar .app-bar__navigation.open {
+    transform: translate(0, 0)
+}
+
+.app-bar .app-bar__navigation ul {
+    list-style-type: none;
+}
+
+.app-bar .app-bar__navigation ul li a {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    width: 100%;
+    font-size: 1.6em;
+    padding: 1.2em 1.6em;
+}
+
+.app-bar .app-bar__navigation ul li a:focus {
+    color: #F0C929;
+}

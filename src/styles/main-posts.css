@@ -1,0 +1,70 @@
+.posts {
+    margin: 32px auto auto;
+    text-align: left;
+}
+
+.post-item {
+    margin: 16px 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.post-item__content {
+    padding: 16px 32px 32px 32px;
+}
+
+.post-item__thumbnail {
+    height: 270px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.post-item__thumbnail__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.post-item__city {
+    margin-right: 0.6em;
+}
+
+.post-item__rating {
+    color: #AC0D0D;
+    text-decoration: none;
+}
+
+.post-item__title {
+    font-family: 'Fredoka One', cursive;
+    font-weight: 500;
+    font-size: 18px;
+    transition: 0.3s opacity;
+    width: 100%;
+    padding: 12px 0;
+}
+
+.post-item__title:hover {
+    color: #AC0D0D;
+}
+
+.post-item__title a {
+    text-decoration: none;
+    color: inherit;
+    padding: 12px 0;
+}
+
+.post-item__title a:focus {
+    color: #F0C929;
+}
+
+.post-item__description {
+    margin-top: 16px;
+    font-size: 14px;
+    line-height: 1.5em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}

@@ -1,3 +1,9 @@
+@import "app-bar.css";
+@import "jumbotron.css";
+@import "main-posts.css";
+@import "details.css";
+
+
 * {
     padding: 0;
     margin: 0;
@@ -21,153 +27,16 @@ body {
     flex-direction: column;
 }
 
-img {
-    width: 100%;
-}
-
-/*
- * AppBar
- */
-
-.app-bar {
-    font-family: 'Fredoka One', cursive;
-    transition: min-height 0.3s;
-    padding: 8px 16px;
-    background-color: white;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    gap: 10px;
-    position: sticky;
-    top: 0;
-    z-index: 99;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-}
-
-.app-bar .app-bar__menu {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-.app-bar .app-bar__menu button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 3em;
-    line-height: 2.4em;
-    color: #AC0D0D;
-    padding-left: 12px;
-}
-
-.app-bar .app-bar__brand {
-    display: flex;
-    align-items: center;
-}
-
-.app-bar .app-bar__brand img {
-    width: 80px;
-}
-
-.app-bar .app-bar__brand h1 {
-    font-size: 3em;
-    user-select: none;
-    line-height: 44px;
-}
-
-.app-bar .app-bar__brand h1 a {
-    text-decoration: none;
-    color: #AC0D0D;
-}
-
-.app-bar .app-bar__navigation {
-    width: 250px;
-    height: 100%;
-    position: fixed;
-    right: 0;
-    top: 0;
-    transform: translate(250px, 0);
-    transition: transform 0.3s ease-in-out;
-    background-color: #AC0D0D;
-    padding: 4.2em 0;
-}
-
-.app-bar .app-bar__navigation.open {
-    transform: translate(0, 0)
-}
-
-.app-bar .app-bar__navigation ul {
-    list-style-type: none;
-}
-
-.app-bar .app-bar__navigation ul li a {
-    display: inline-block;
-    text-decoration: none;
-    color: white;
-    width: 100%;
-    font-size: 1.6em;
-    padding: 1.2em 1.6em;
-}
-
-.app-bar .app-bar__navigation ul li a:focus {
-    color: #F0C929;
-}
-
-/*
- * Jumbotron
- */
-
-.hero {
-    display: flex;
-    align-items: center;
-    min-height: 380px;
-    width: 100%;
-    text-align: center;
-    background-position: center;
-    background-color: #AC0D0D;
-    padding: 0 1.6em;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.4)), url('../public/images/heros/hero-image_4-small.jpg');
-}
-
-.hero__inner {
-    margin: 0 auto;
-    max-width: 800px;
-}
-
-.hero__title {
-    color: #fff;
-    font-weight: 500;
-    font-size: 3em;
-    font-family: 'Fredoka One', cursive;
-}
-
-.hero__tagline {
-    color: #fff;
-    margin-top: 16px;
-    font-size: 18px;
-    font-weight: 400;
-    max-width: 400px;
-}
-
-/*
- * Main
- */
-
 main {
     width: 100%;
     margin: 0 auto;
 }
 
-/*
- * Post
- */
-
-.posts {
-    margin: 32px auto auto;
-    text-align: left;
+img {
+    width: 100%;
 }
 
-/* wrapper */
-
+/* main-wrapper */
 .restaurants {
     display: grid;
     gap: 0 10px;
@@ -177,249 +46,19 @@ main {
     min-height: 70vh;
 }
 
-/*
- * Post item
- */
-
-.post-item {
-    margin: 16px 0;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    width: 100%;
-    border-radius: 5px;
-    overflow: hidden;
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background-color: #AC0D0D;
+    color: white;
+    padding: 1em;
+    z-index: 100;
 }
 
-.post-item__content {
-    padding: 16px 32px 32px 32px;
+.skip-link:focus {
+    top: 0;
 }
-
-.post-item__thumbnail {
-    height: 270px;
-    background-color: rgba(0, 0, 0, 0.1);
-}
-
-.post-item__thumbnail__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.post-item__city {
-    margin-right: 0.6em;
-}
-
-.post-item__rating {
-    color: #AC0D0D;
-    text-decoration: none;
-}
-
-.post-item__title {
-    font-family: 'Fredoka One', cursive;
-    font-weight: 500;
-    font-size: 18px;
-    transition: 0.3s opacity;
-    width: 100%;
-    padding: 12px 0;
-}
-
-.post-item__title:hover {
-    color: #AC0D0D;
-}
-
-.post-item__title a {
-    text-decoration: none;
-    color: inherit;
-    padding: 12px 0;
-}
-
-.post-item__title a:focus {
-    color: #F0C929;
-}
-
-.post-item__description {
-    margin-top: 16px;
-    font-size: 14px;
-    line-height: 1.5em;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-}
-
-/*
- * Restaurant Detail
- */
-
-.restaurant__wrapper {
-    max-width: 850px;
-    margin: auto;
-}
-
-.restaurant__poster {
-    height: 300px;
-}
-
-.restaurant__poster__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.restaurant__title {
-    font-family: 'Fredoka One', cursive;
-    font-size: 2.6em;
-    padding-bottom: 24px;
-}
-
-.restaurant__category {
-    list-style-type: none;
-    text-transform: capitalize;
-    text-align: center;
-    padding-bottom: 16px;
-    display: flex;
-}
-
-.restaurant__category li {
-    font-size: 10px;
-    line-height: 12px;
-    border-radius: 8px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    background-color: rgba(0, 0, 0, 0.1);
-    padding: 5px 8px;
-    margin-right: 8px;
-    color: rgba(0, 0, 0, 0.6);
-}
-
-.restaurant__city {
-    margin-right: 0.6em;
-    font-size: 16px;
-}
-
-.restaurant__rating {
-    color: #AC0D0D;
-    text-decoration: none;
-    font-size: 16px;
-}
-
-.restaurant__info {
-    max-width: 850px;
-    margin: auto;
-    padding: 32px;
-    width: 100%;
-}
-
-.restaurant__address {
-    font-size: 12px;
-    margin-top: 8px;
-    font-style: italic;
-}
-
-.restaurant__details {
-    max-width: 640px;
-    margin: auto auto 27px;
-    padding: 0 32px 32px 32px;
-    grid-column-start: 1;
-    grid-column-end: 4;
-}
-
-.restaurant__description {
-    padding: 0;
-}
-
-.restaurant__menu {
-    padding: 12px 0;
-    font-size: 12px;
-    font-weight: normal;
-    text-transform: uppercase;
-}
-
-.restaurant__menu__list {
-    list-style-type: none;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    text-transform: capitalize;
-    text-align: center;
-    padding-bottom: 16px;
-}
-
-.restaurant__menu__list li {
-    width: 100%;
-    height: 120px;
-    font-weight: bold;
-    border-radius: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    background-color: rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5px;
-}
-
-.restaurant__review {
-    padding: 9px 0;
-}
-
-.restaurant__review__container {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    padding: 32px 16px;
-}
-
-.restaurant__review__meta {
-    height: 44px;
-    vertical-align: top;
-    padding: 8px;
-    display: inline-block;
-}
-
-.restaurant__review__name {
-    font-size: 12px;
-}
-
-.restaurant__review__date {
-    font-size: 10px;
-    color: rgba(0, 0, 0, 0.5);
-    padding: 3px 0;
-}
-
-.restaurant__review__image {
-    border-radius: 50%;
-    width: 44px;
-    height: 44px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    background-color: rgba(0, 0, 0, 0.1);
-    display: inline-block;
-}
-
-.restaurant__review__desc {
-    margin: 10px 0 0 56px;
-}
-
-.restaurant__subtitle {
-    font-family: 'Fredoka One', cursive;
-    line-height: 2.6em;
-    text-transform: uppercase;
-    margin-top: 16px;
-    color: #AC0D0D;
-}
-
-.restaurant__fav__title {
-    font-family: 'Fredoka One', cursive;
-    font-size: 2em;
-    padding: 32px 32px 0 32px;
-    max-width: 1200px;
-    margin: auto;
-}
-
-.restaurant-item__not__found {
-    font-size: 1.2em;
-    margin: 0 auto;
-}
-
-/*
- * Search Box
- */
 
 .searchbox {
     margin: auto;
@@ -451,10 +90,6 @@ input:focus {
     border: 2px solid #AC0D0D;
 }
 
-/*
- * Footer
- */
-
 footer {
     background-color: #AC0D0D;
     padding: 2em;
@@ -467,28 +102,6 @@ footer {
     font-family: 'Fredoka One', cursive;
     font-size: 1.2em;
 }
-
-/*
- * Skip to content
- */
-
-.skip-link {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    background-color: #AC0D0D;
-    color: white;
-    padding: 1em;
-    z-index: 100;
-}
-
-.skip-link:focus {
-    top: 0;
-}
-
-/*
- *  Like
- */
 
 .like {
     font-size: 18px;
