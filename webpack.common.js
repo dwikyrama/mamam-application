@@ -4,7 +4,7 @@ const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin')
 const path = require('path')
 const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default
 const ImageminMozjpeg = require('imagemin-mozjpeg')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const WebpackPwaManifest = require('webpack-pwa-manifest')
 
 module.exports = {
@@ -86,9 +86,9 @@ module.exports = {
         })
       ]
     }),
-    new BundleAnalyzerPlugin({
-      openAnalyzer: false
-    }),
+    // new BundleAnalyzerPlugin({
+    //   openAnalyzer: false
+    // }),
     new WebpackPwaManifest({
       filename: 'manifest.json',
       name: 'mamam',
