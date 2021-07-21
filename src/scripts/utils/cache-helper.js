@@ -1,4 +1,5 @@
 import CONFIG from '../globals/config'
+import API_ENDPOINT from '../globals/api-endpoint'
 
 const CacheHelper = {
   async cachingAppShell (requests) {
@@ -33,7 +34,9 @@ const CacheHelper = {
       return response
     }
 
-    await this._addCache(request)
+    if (response.url !== API_ENDPOINT.REVIEW) {
+      await this._addCache(request)
+    }
     return response
   },
 

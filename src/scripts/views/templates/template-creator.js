@@ -28,6 +28,17 @@ const createRestaurantDetailTemplate = (restaurant) => `
                 <h5 class="restaurant__menu">Minuman</h5>
                     <ul id="restaurantMenuDrinks" class="restaurant__menu__list"></ul>
         </div>
+        <div>
+            <h4 class="restaurant__subtitle">Beri Ulasan</h4>
+            <form>
+                <input id="name" class="form__name" required type="text"
+                    name ="name" aria-label="Input your name" placeholder="Nama"/>
+                <textarea id="review" class="form__review" required name="review" rows="4"
+                    aria-label="Write your review" placeholder="Tulis ulasan"></textarea>
+                <button id="submitButton" class="form__submit"
+                    type="submit" aria-label="Send review">Kirim</button>
+            </form>   
+        </div>
         <div id="restaurantReview" class="restaurant__review">
             <h4 class="restaurant__subtitle">Ulasan</h4>
         </div>
@@ -52,6 +63,7 @@ const createRestaurantItemTemplate = (restaurant) => `
         </div>
     </article>
 `
+
 const createLikeButtonTemplate = () => `
   <button aria-label="like this restaurant" id="likeButton" class="like">
      <i class="fa fa-heart-o" aria-hidden="true"></i>
@@ -64,9 +76,21 @@ const createUnlikeButtonTemplate = () => `
   </button>
 `
 
+const createReviewTemplate = (review) => `
+    <div class="restaurant__review__container">
+    <div class="restaurant__review__image"></div>
+    <div class="restaurant__review__meta">
+        <h5 class="restaurant__review__name">${review.name}</h5>
+        <p class="restaurant__review__date">${review.date}</p>
+    </div>
+    <p class="restaurant__review__desc">${review.review}</p>
+    </div>
+`
+
 export {
   createRestaurantItemTemplate,
   createRestaurantDetailTemplate,
   createLikeButtonTemplate,
-  createUnlikeButtonTemplate
+  createUnlikeButtonTemplate,
+  createReviewTemplate
 }

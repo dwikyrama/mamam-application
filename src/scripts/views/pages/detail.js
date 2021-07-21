@@ -1,6 +1,6 @@
 import UrlParser from '../../routes/url-parser'
 import restaurantDbSource from '../../data/restaurantdb-source'
-import { createRestaurantDetailTemplate } from '../templates/template-creator'
+import { createRestaurantDetailTemplate, createReviewTemplate } from '../templates/template-creator'
 import LikeButtonPresenter from '../../utils/like-button-presenter'
 import FavoriteRestaurantIdb from '../../data/favoriterestaurant-idb'
 
@@ -43,19 +43,12 @@ const Detail = {
         `
     })
 
-    const restaurantReview = restaurant.customerReviews
-    const restaurantReviewContainer = document.querySelector('#restaurantReview')
+    const restaurantReview = await restaurant.customerReviews
+    const restaurantReviewContainer = document.querySelector('#restaurantReview').firstElementChild
     restaurantReview.forEach((review) => {
-      restaurantReviewContainer.innerHTML += `
-          <div class="restaurant__review__container">
-            <div class="restaurant__review__image"></div>
-            <div class="restaurant__review__meta">
-              <h5 class="restaurant__review__name">${review.name}</h5>
-              <p class="restaurant__review__date">${review.date}</p>
-            </div>
-            <p class="restaurant__review__desc">${review.review}</p>
-          </div>
-        `
+      restaurantReviewContainer.insertAdjacentHTML(
+        'afterend', createReviewTemplate(review)
+      )
     })
 
     LikeButtonPresenter.init({
@@ -68,6 +61,36 @@ const Detail = {
         city: restaurant.city,
         rating: restaurant.rating,
         pictureId: restaurant.pictureId
+      }
+    })
+
+    const reviewerName = document.querySelector('#name')
+    const writtenReview = document.querySelector('#review')
+    const submitButton = document.querySelector('#submitButton')
+    submitButton.addEventListener('click', async (event) => {
+      event.preventDefault()
+
+      if (reviewerName.value === '' || writtenReview.value === '') {
+        alert('Nama dan ulasan tidak boleh kosong.')
+      } else {
+        const review = {
+          id: restaurant.id,
+          name: reviewerName.value,
+          review: writtenReview.value
+        }
+        const postReview = await restaurantDbSource.postReview(review)
+        reviewerName.value = ''
+        writtenReview.value = ''
+
+        alert('Ulasan berhasil dikirim.')
+
+        const latestReview = postReview.customerReviews[
+          postReview.customerReviews.length - 1
+        ]
+
+        restaurantReviewContainer.insertAdjacentHTML(
+          'afterend', createReviewTemplate(latestReview)
+        )
       }
     })
   }
