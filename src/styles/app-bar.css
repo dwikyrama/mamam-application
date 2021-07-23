@@ -1,7 +1,7 @@
  .app-bar {
     font-family: 'Fredoka One', cursive;
     transition: min-height 0.3s;
-    padding: 8px 16px;
+    padding: 0 16px;
     background-color: white;
     display: grid;
     grid-template-columns: auto 1fr auto;
@@ -23,7 +23,7 @@
     border: none;
     cursor: pointer;
     font-size: 3em;
-    line-height: 2.4em;
+    line-height: 2em;
     color: #AC0D0D;
     padding-left: 12px;
 }
