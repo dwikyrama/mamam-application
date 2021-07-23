@@ -18,9 +18,11 @@ window.addEventListener('hashchange', () => {
 
 window.addEventListener('load', () => {
   const loader = document.querySelector('#loader')
+  const page = document.querySelector('#page')
 
   setTimeout(function () {
     loader.style.opacity = 0
+    page.style.visibility = 'visible'
     setTimeout(function () {
       loader.remove()
     }, 500)

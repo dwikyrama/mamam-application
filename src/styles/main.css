@@ -26,6 +26,10 @@ body {
     flex-direction: column;
 }
 
+#page {
+    visibility: hidden;
+}
+
 main {
     width: 100%;
     margin: 0 auto;

@@ -20,7 +20,7 @@
     .app-bar {
         padding: 0 24px;
     }
-
+    
     .restaurant__wrapper {
         display: grid;
         grid-template-columns: 1fr 3fr;
