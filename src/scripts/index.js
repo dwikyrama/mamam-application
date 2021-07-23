@@ -17,6 +17,15 @@ window.addEventListener('hashchange', () => {
 })
 
 window.addEventListener('load', () => {
+  const loader = document.querySelector('#loader')
+
+  setTimeout(function () {
+    loader.style.opacity = 0
+    setTimeout(function () {
+      loader.remove()
+    }, 500)
+  }, 2000)
+
   app.renderPage()
   swRegister()
 })
