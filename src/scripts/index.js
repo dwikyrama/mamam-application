@@ -22,7 +22,7 @@ window.addEventListener('load', () => {
 
   setTimeout(function () {
     loader.style.opacity = 0
-    page.style.visibility = 'visible'
+    page.style.display = 'block'
     setTimeout(function () {
       loader.remove()
     }, 500)
