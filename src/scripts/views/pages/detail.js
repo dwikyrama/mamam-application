@@ -70,7 +70,9 @@ const Detail = {
     submitButton.addEventListener('click', async (event) => {
       event.preventDefault()
 
-      if (reviewerName.value === '' || writtenReview.value === '') {
+      if (window.navigator.onLine === false) {
+        alert('Ulasan gagal ditambahkan. Koneksi internet tidak tersedia.')
+      } else if (reviewerName.value === '' || writtenReview.value === '') {
         alert('Nama dan ulasan tidak boleh kosong.')
       } else {
         const review = {
