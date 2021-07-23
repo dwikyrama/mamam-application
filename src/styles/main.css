@@ -27,7 +27,7 @@ body {
 }
 
 #page {
-    display: none;
+    visibility: hidden;
 }
 
 main {
