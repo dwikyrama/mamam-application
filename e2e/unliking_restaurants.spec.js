@@ -11,6 +11,7 @@ Scenario('Unliking restaurants', async ({ I }) => {
   I.see('Tidak ada restoran untuk ditampilkan', '.restaurant-item__not__found')
 
   I.amOnPage('/')
+  I.wait(5)
 
   I.seeElement('.post-item__name')
   const firstRestaurant = locate('.post-item__name').first()

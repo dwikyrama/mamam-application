@@ -17,6 +17,7 @@ Scenario('Liking a restaurant', async ({ I }) => {
   I.see('Tidak ada restoran untuk ditampilkan', '.restaurant-item__not__found')
 
   I.amOnPage('/')
+  I.wait(5)
 
   I.seeElement('.post-item__name')
   const firstRestaurant = locate('.post-item__name').first()
@@ -37,6 +38,7 @@ Scenario('Searching restaurants', async ({ I }) => {
   I.see('Tidak ada restoran untuk ditampilkan', '.restaurant-item__not__found')
 
   I.amOnPage('/')
+  I.wait(5)
 
   const titles = []
 
@@ -46,6 +48,7 @@ Scenario('Searching restaurants', async ({ I }) => {
     I.click('#likeButton')
     titles.push(await I.grabTextFrom('.restaurant__title'))
     I.amOnPage('/')
+    I.wait(5)
   }
 
   I.amOnPage('/#/favorite')

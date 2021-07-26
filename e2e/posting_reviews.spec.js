@@ -7,7 +7,9 @@ Before(({ I }) => {
   I.amOnPage('/')
 })
 
-Scenario.only('Posting a review on a restaurant', async ({ I }) => {
+Scenario('Posting a review on a restaurant', async ({ I }) => {
+  I.wait(5)
+
   I.seeElement('.post-item__name')
   const firstRestaurant = locate('.post-item__name').at(4)
   I.click(firstRestaurant)
